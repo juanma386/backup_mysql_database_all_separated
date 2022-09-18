@@ -1,0 +1,1 @@
+sudo su;mkdir -p /var/www/backup_databases; mysql -N -e 'show databases' | while read dbname; do mysqldump --complete-insert --routines --triggers --single-transaction "$dbname" > /var/www/backup_databases/"$dbname".sql; done
